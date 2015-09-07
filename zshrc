@@ -97,5 +97,8 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+# fangj
+[[ -f ~/.zshrc.oh-my-zsh ]] && source ~/.zshrc.oh-my-zsh
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
