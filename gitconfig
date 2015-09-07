@@ -1,26 +1,63 @@
-[init]
-  templatedir = ~/.git_template
-[push]
-  default = current
-[color]
-  ui = auto
-[alias]
-  aa = add --all
-  ap = add --patch
-  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
-  ci = commit -v
-  co = checkout
-  st = status
+# This is Git's per-user configuration file.
 [core]
-  excludesfile = ~/.gitignore
-  autocrlf = input
+# Please adapt and uncomment the following lines:
+#	user = Housegold
+#	email = housegold@Housegolds-Mac-Pro.local
+[user]
+	name = Housegold
+	email = jingfangjing@gmail.com
+[alias]
+	br = branch
+	co = checkout
+	df = difftool
+	st = status
+	last = log --pretty=oneline -1 HEAD
+	glog = log --graph --date=short --pretty=tformat:'%ad %h %s'
+	unstage = reset HEAD
+[push]
+	default = simple
+[core]
+	#pager = cat
+	pager = "less -F -X"
+	excludesfile = /Users/housegold/.gitignore_global
+	autocrlf = input
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+#[difftool "sourcetree"]
+#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+#	path = 
+#[mergetool "sourcetree"]
+#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#	trustExitCode = true
+
+[difftool "sourcetree"]
+	cmd = "I "
+	path = 
+[mergetool "sourcetree"]
+	cmd = " "
+	trustExitCode = true
+
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[difftool "p4merge"]
+	cmd = /opt/homebrew-cask/Caskroom/p4merge/2014.3-1007540/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+	path = /opt/homebrew-cask/Caskroom/p4merge/2014.3-1007540/p4merge.app/Contents/Resources/launchp4merge
+
 [merge]
-  ff = only
-[commit]
-  template = ~/.gitmessage
-[fetch]
-  prune = true
-[rebase]
-  autosquash = true
-[include]
-  path = ~/.gitconfig.local
+	tool = vimdiff
+[mergetool]
+keepBackup = false
+[mergetool "bcomp"]
+trustExitCode = true
+cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[diff]
+	tool = vimdiff
+[difftool]
+[difftool "bcomp"]
+trustExitCode = true
+cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
