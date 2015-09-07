@@ -1,2 +1,4 @@
-EXCLUDES="README.md LICENSE"
+# EXCLUDES="README.md LICENSE"
+# EXCLUDES="README.md LICENSE bak"
+EXCLUDES="README.md LICENSE gemrc gvimrc hushlogin psqlrc rspec vimrc vimrc.bundles zsh zshenv zshrc bak" 
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
