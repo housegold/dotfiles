@@ -1,6 +1,6 @@
 #!/bin/sh
 
-touch $HOME/.psqlrc.local
+# touch $HOME/.psqlrc.local
 
 if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
   curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
