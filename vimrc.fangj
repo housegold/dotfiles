@@ -1,0 +1,564 @@
+" Use Vim settings, rather then Vi settings. This setting must be as early as
+" possible, as it has side effects.
+
+" fang
+let mapleader = ","
+
+" Save session automatically. Note: This option must be set in .vimrc.
+let g:unite_source_session_enable_auto_save = 1
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,localoptions
+
+" fang
+set foldmethod=syntax
+
+" Toggle fold methods \fo
+let g:FoldMethod = 0
+map <leader>fo :call ToggleFold()<cr>
+fun! ToggleFold()
+    if g:FoldMethod == 0
+	exe 'set foldmethod=indent'
+	let g:FoldMethod = 1
+    elseif g:FoldMethod == 1
+	exe 'set foldmethod=syntax'
+	let g:FoldMethod = 2
+else
+	exe 'set foldmethod=marker'
+	let g:FoldMethod = 0
+    endif
+
+    " fang
+    set foldmethod?
+endfun
+
+" nnoremap <space>a za
+" nnoremap <space>A zA
+" nnoremap <space>x zx
+" nnoremap <space>X zX
+
+" Add markers (trigger on class Foo line)
+nnoremap ,f2 ^wywO#<c-r>0 {{{2<esc>
+nnoremap ,f3 ^wywO#<c-r>0 {{{3<esc> 
+nnoremap ,f4 ^wywO#<c-r>0 {{{4<esc>
+nnoremap ,f1 ^wywO#<c-r>0 {{{1<esc>
+
+
+
+
+
+
+
+
+"************************
+"set hlsearch
+set history=1000
+" set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,localoptions
+set sessionoptions=buffers,curdir,folds,help,tabpages,winsize,localoptions
+" set clipboard=unnamed
+set ignorecase
+set smartcase
+nmap ZA :qa!<CR>
+
+
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" " Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" " `s{char}{label}`
+" nmap s <Plug>(easymotion-s)
+" " or
+" " `s{char}{char}{label}`
+" " Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+"
+" " Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+"
+" " JK motions: Line motions
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+
+
+
+
+" fang
+colorscheme  desert
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
+colorscheme  delek
+colorscheme  xoria256
+" colorscheme  zenburn
+
+
+
+" Set up the gui cursor to look nice
+" set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+
+" set term=xterm
+
+" " allow command line editing like emacs
+" cnoremap <C-A>      <Home>
+" cnoremap <C-B>      <Left>
+" " cnoremap <C-B>      :echoe "Use h"<CR>
+" cnoremap <C-E>      <End>
+" cnoremap <C-F>      <Right>
+" " cnoremap <C-N>      <End>
+" " cnoremap <C-P>      <Up>
+" cnoremap <ESC>b     <S-Left>
+" cnoremap <ESC><C-B> <S-Left>
+" cnoremap <ESC>f     <S-Right>
+" cnoremap <ESC><C-F> <S-Right>
+" cnoremap <ESC><C-H> <C-W>
+" 
+" 
+" 
+
+	
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+" " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/c/ycm/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" 
+
+"" YouCompleteMe options
+"
+"
+"let g:ycm_register_as_syntastic_checker = 1 "default 1
+"let g:Show_diagnostics_ui = 1 "default 1
+"
+""will put icons in Vim's gutter on lines that have a diagnostic set.
+"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+""highlighting
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+
+nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
+
+set nofoldenable
+set wildmenu
+" set wildmode=longest:full,full
+set wildmode=longest,full
+set nolist
+
+" buffer快速导航
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+
+" 查看buffers
+nnoremap <Leader>l :ls<CR>
+
+" 通过索引快速跳转
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+
+
+nnoremap <Leader>z :bp<CR>
+nnoremap <Leader>x :bn<CR>
+nnoremap <Leader>l :buffers<CR>:buffer<Space>
+" nnoremap <space>b :buffers<CR>:buffer<Space>
+nnoremap <space>b :buffers!<CR>:buffer<Space>
+" nnoremap <space>b :CtrlPBuffer<CR>
+
+
+nnoremap <C-x> :buffers<CR>:buffer<Space>
+" nnoremap <C-p> :bp<CR>
+" nnoremap <C-n> :bn<CR>
+
+" CtrlP
+" nnoremap <Leader>b :CtrlPBuffer<CR>
+" " nnoremap <Leader>m :CtrlPMRUFiles<CR>
+" " nnoremap <C-M> :CtrlPMRUFiles<CR>
+" nnoremap <C-N> :CtrlPMRUFiles<CR>
+
+
+" let g:ctrlp_mruf_relative = 1
+"for file search ctrlp, 文件搜索
+"Bundle 'kien/ctrlp.vim'
+
+
+
+" 打开ctrlp搜索
+" let g:ctrlp_map = '<leader>ff'
+" let g:ctrlp_map = '<C-x>'
+let g:ctrlp_cmd = 'CtrlP'
+" 相当于mru功能，show recently opened files
+map <leader>ff :CtrlPMRU<CR>
+nnoremap <Leader>fb :CtrlPBuffer<CR>
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
+" let g:ctrlp_custom_ignore = {
+" 	    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+" 	    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+" 	    \ }
+" 	    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+" let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
+let g:ctrlp_cmd = 'CtrlPBuffer'
+
+
+if exists("g:ctrlp_user_command")
+    unlet g:ctrlp_user_command
+endif
+" 多个版本控制系统:
+let g:ctrlp_user_command = {
+	    \ 'types': {
+	    \ 1: ['.git', 'cd %s && git ls-files'],
+	    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+	    \ },
+	    \ 'fallback': 'find %s -type f'
+	    \ }
+
+
+" Ag
+let g:ag_qhandler="copen 30"
+let g:ag_apply_lmappings=1 
+let g:ag_apply_qmappings=1
+
+" Unite
+" nnoremap <leader>ff :Unite file<CR>
+" nnoremap <leader>fm :Unite file_mru<CR>
+" nnoremap <leader>fb :Unite buffer<CR>
+nnoremap <space>mm :Unite file_mru<CR>
+
+" nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+" Using ag as recursive command.
+let g:unite_source_rec_async_command =
+	    \ 'ag --follow --nocolor --nogroup --hidden -g ""'
+
+function! AutoLoadCTagsAndCScope()
+    let max = 10
+    let dir = './'
+    let i = 0
+    let break = 0
+    while isdirectory(dir) && i < max
+        if filereadable(dir . 'GTAGS')
+            execute 'cs add ' . dir . 'GTAGS ' . glob("`pwd`")
+            let break = 1
+        endif
+        if filereadable(dir . 'cscope.out')
+            execute 'cs add ' . dir . 'cscope.out'
+            let break = 1
+        endif
+        if filereadable(dir . 'tags')
+            execute 'set tags =' . dir . 'tags'
+            let break = 1
+        endif
+        if break == 1
+            execute 'lcd ' . dir
+            break
+        endif
+        let dir = dir . '../'
+        let i = i + 1
+    endwhile
+endf
+nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
+" call AutoLoadCTagsAndCScope()
+" http://vifix.cn/blog/vim-auto-load-ctags-and-cscope.html
+
+map <Leader>ct :!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q -L cscope.files<CR>
+
+" 如果编译了 cscope 支持
+if has("cscope")
+    call AutoLoadCTagsAndCScope()
+    " " 使用 cscope 的 tags
+    " set cscopetag
+    " " 如果有 cscope.out ，加载之
+    " if filereadable("cscope.out")
+	" cs add cscope.out
+    " endif
+    " " 添加快捷键更新 cscope 数据库
+    " " nmap <C-M> :!find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.cc" > cscope.files && cscope -Rbqi cscope.files<CR>
+
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+
+
+    " http://www.farseer.cn/config/2013/11/26/ctags-cscope-gtags/
+    nnoremap <leader>cg :execute 'cscope find g '.expand('<cword>')<CR>
+    nnoremap <leader>cs :execute 'cscope find s '.expand('<cword>')<CR>
+    nnoremap <leader>cc :execute 'cscope find c '.expand('<cword>')<CR>
+    nnoremap <leader>ct :execute 'cscope find t '.expand('<cword>')<CR>
+    nnoremap <leader>cf :execute 'cscope find f '.expand('<cword>')<CR>
+    nnoremap <leader>ci :execute 'cscope find i '.expand('<cword>')<CR>
+    vnoremap <leader>cg <ESC>:execute 'cscope find g '.GetVisualSelection()<CR>
+    vnoremap <leader>cs <ESC>:execute 'cscope find s '.GetVisualSelection()<CR>
+    vnoremap <leader>cc <ESC>:execute 'cscope find c '.GetVisualSelection()<CR>
+    vnoremap <leader>ct <ESC>:execute 'cscope find t '.GetVisualSelection()<CR>
+    vnoremap <leader>cf <ESC>:execute 'cscope find f '.GetVisualSelection()<CR>
+    vnoremap <leader>ci <ESC>:execute 'cscope find i '.GetVisualSelection()<CR>
+
+
+    nnoremap <leader>cd :execute 'cscope find d '.expand('<cword>')<CR>
+    vnoremap <leader>cd <ESC>:execute 'cscope find d '.GetVisualSelection()<CR>
+
+    function! GetVisualSelection()
+	let [s:lnum1, s:col1] = getpos("'<")[1:2]
+	let [s:lnum2, s:col2] = getpos("'>")[1:2]
+	let s:lines = getline(s:lnum1, s:lnum2)
+	let s:lines[-1] = s:lines[-1][: s:col2 - (&selection == 'inclusive' ? 1 : 2)]
+	let s:lines[0] = s:lines[0][s:col1 - 1:]
+	return join(s:lines, ' ')
+    endfunction
+
+    " gtags-cscope
+    " set csprg=gtags-cscope
+    nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+    nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
+    nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
+    nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
+    vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
+
+endif
+
+" gtags
+" http://www.farseer.cn/config/2013/11/26/ctags-cscope-gtags/
+nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
+nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
+nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
+vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
+
+
+
+" better man page in vim
+" http://www.farseer.cn/config/2013/08/13/vim-tips-2/
+runtime ftplugin/man.vim
+nmap K :Man <cword><CR>
+vmap K <ESC>:execute "Man ".GetVisualSelection()<CR>
+function! GetVisualSelection()
+    let [s:lnum1, s:col1] = getpos("'<")[1:2]  " 坑爹的高亮
+    let [s:lnum2, s:col2] = getpos("'>")[1:2]
+    let s:lines = getline(s:lnum1, s:lnum2)
+    let s:lines[-1] = s:lines[-1][: s:col2 - (&selection == 'inclusive' ? 1 : 2)]
+    let s:lines[0] = s:lines[0][s:col1 - 1:]
+    return join(s:lines, " ")
+endfunction
+
+
+
+" Unite {{{ "
+" Fuzzy match by default
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#filters#sorter_default#use(['sorter_rank'])
+" 
+" " Fuzzy matching for plugins not using matcher_default as filter
+" call unite#custom#source('outline,line,grep,session', 'matchers', ['matcher_fuzzy'])
+" 
+" " Ignore some things
+" " KEEP THESE IN SYNC WITH WILDIGNORE!
+" " Need to escape dots in the patterns!
+" call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+"             \ 'ignore_pattern', join([
+"             \ '\.swp', '\.swo', '\~$',
+"             \ '\.git/', '\.svn/', '\.hg/',
+"             \ '^tags$', '\.taghl$',
+"             \ '\.ropeproject/',
+"             \ 'node_modules/', 'log/', 'tmp/', 'obj/',
+"             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
+"             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
+"             \ 'thirdparty/', 'Debug/', 'Release/',
+"             \ '\.pyc$', '\.class$', '\.jar$',
+"             \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
+"             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
+"             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
+"             \ ], '\|'))
+" 
+" let g:unite_source_rec_max_cache_files = 0
+" call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+"             \ 'max_candidates', 0)
+" 
+" " Keep track of yanks
+" let g:unite_source_history_yank_enable = 1
+" " Prettier prompt
+" call unite#custom#profile('default', 'context', {
+"     \   'prompt': '» ',
+"     \   'start_insert': 1,
+"     \   'update_time': 200,
+"     \   'cursor_line_highlight': 'UniteSelectedLine',
+"     \   'direction': 'botright',
+"     \   'prompt_direction': 'top',
+"     \ })
+" " Autosave sessions for unite-sessions
+" let g:unite_source_session_enable_auto_save = 1
+" " Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
+" let g:unite_cursor_line_highlight = "UniteSelectedLine"
+" " Set to some better time formats
+" let g:unite_source_buffer_time_format = "%Y-%m-%d  %H:%M:%S  "
+" let g:unite_source_file_mru_time_format = "%Y-%m-%d  %H:%M:%S  "
+
+" Use ag or ack as grep command if possible
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden --ignore-case --ignore tags'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
+  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_default_opts =
+              \ '--no-heading --no-color -a -H'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+function! g:DoUniteFuzzy()
+    call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_rank')
+    call unite#custom#source('file_rec/async,file/new', 'converters', 'converter_relative_word')
+    call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_fuzzy')
+    exec "Unite -buffer-name=files file_rec/async file/new"
+endfunction
+function! g:DoUniteNonFuzzy()
+    call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_nothing')
+    call unite#custom#source('file_rec/async,file/new', 'converters', 'converter_relative_word')
+    call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_glob')
+    exec "Unite -buffer-name=files file_rec/async file/new"
+endfunction
+function! g:DoUniteFuzzyQuickfix()
+    call unite#custom#source('quickfix', 'sorters', 'sorter_rank')
+    call unite#custom#source('quickfix', 'matchers', 'matcher_fuzzy')
+    exec "Unite -buffer-name=quickfix quickfix"
+endfunction
+function! g:DoUniteNonFuzzyQuickfix()
+    call unite#custom#source('quickfix', 'sorters', 'sorter_nothing')
+    call unite#custom#source('quickfix', 'matchers', 'matcher_glob')
+    exec "Unite -buffer-name=quickfix quickfix"
+endfunction
+function! UltiSnipsCallUnite()
+    Unite -immediately -no-empty -vertical -buffer-name=ultisnips ultisnips
+    return ''
+endfunction
+
+" Bindings
+inoremap <silent><leader>l<tab> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+nnoremap <silent><leader>l<tab> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
+nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
+nnoremap <silent><leader>lq :call g:DoUniteFuzzyQuickfix()<CR>
+nnoremap <silent><leader>lQ :call g:DoUniteNonFuzzyQuickfix()<CR>
+nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
+nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
+nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer_tab<CR>
+nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
+nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=changes change<CR>
+nnoremap <silent><leader>lj :<C-u>Unite -buffer-name=jumps jump<CR>
+nnoremap <silent><leader>lf :<C-u>Unite -buffer-name=jumps jump<CR>
+nnoremap <silent><leader>l; :<C-u>Unite -buffer-name=commands history/command<CR>
+nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
+nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
+nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=line line<CR>
+nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=location_list location_list<CR>
+nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=line line<CR>
+nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
+nnoremap <silent><leader>ls :<C-u>Unite session<CR>
+nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
+nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included_tags tag/include<CR>
+nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+nnoremap <silent><leader>l, :<C-u>UniteResume<CR>
+nnoremap <silent><leader>lv :<C-u>UniteResume<CR>
+nnoremap <silent><leader>lV :<C-u>UniteResume 
+
+nnoremap <leader>lS :<C-u>UniteSessionSave 
+
+function! s:unite_my_settings()
+  "Don't add parens to my filters
+  let b:delimitMate_autoclose = 0
+
+  "Keymaps inside the unite split
+  nmap <buffer> <nowait> <leader>d <Plug>(unite_exit)
+  nmap <buffer> <nowait> <C-c> <Plug>(unite_exit)
+  imap <buffer> <nowait> <C-c> <Plug>(unite_exit)
+
+  nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
+  nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
+
+  nnoremap <buffer> <Up> 3<c-y>
+  nnoremap <buffer> <Down> 3<c-e>
+  inoremap <buffer> <Up> <esc>3<c-y>
+  inoremap <buffer> <Down> <esc>3<c-e>
+
+  inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+endfunction
+
+if has("autocmd")
+augroup UniteSettingsGroup
+    " Clear autocmds for this group
+    autocmd!
+
+    autocmd FileType unite call s:unite_my_settings()
+augroup end
+endif
+
+" }}} Unite "
+
+" fu! <sid>CustomComplete(A,L,C)
+"     let clist=[]
+"     let i=0
+"     while i < argc()
+" 	call add(clist, argv(i))
+" 	let i+=1
+"     endw
+"     call filter(clist, 'v:val =~? a:A')
+"     call map(clist, 'fnameescape(v:val)')
+"     return clist
+" endfu
+" 
+" com! -complete=customlist,<sid>CustomComplete -nargs=1 B :b <args>
+
+ " Prompt for a command to run map
+ map <Leader>vp :VimuxPromptCommand<CR>
+ map <Leader>vm :VimuxPromptCommand("make ")<CR>
+
+
+
+" IPython
+" map  <buffer> <silent> <C-n>          <Plug>(IPython-RunLine)
+map <Leader>ss <Plug>(IPython-RunLine)
+
+
+
