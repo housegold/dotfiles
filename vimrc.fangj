@@ -1,6 +1,20 @@
 " Use Vim settings, rather then Vi settings. This setting must be as early as
 " possible, as it has side effects.
 
+set tabstop=8
+set shiftwidth=4
+set shiftround
+set expandtab 
+
+" set colorcolumn=+1
+set colorcolumn=0
+set hlsearch
+set modeline
+set modelines=5
+
+
+
+
 " fang
 let mapleader = ","
 
