@@ -17,3 +17,12 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+
+# fangj
+# alias rm='echo "This is not the command you are looking for."; false' 
+alias rm="trash-put"
+
+alias goproxy='export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'
+alias disproxy='unset http_proxy https_proxy'
+# endFang
