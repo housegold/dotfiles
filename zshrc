@@ -98,6 +98,11 @@ _load_settings() {
 _load_settings "$HOME/.zsh/configs"
 
 # fangj
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
+
+# fangj
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
 [[ -f ~/.zshrc.oh-my-zsh ]] && source ~/.zshrc.oh-my-zsh
 
 # Local config
