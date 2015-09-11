@@ -71,7 +71,7 @@ Plug 'jnurmine/Zenburn'
 " Plug 'derekwyatt/vim-fswitch' 
 
 " " CtrlP
-" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " " cscope
 " Plug 'steffanc/cscopemaps.vim'

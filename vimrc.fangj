@@ -378,10 +378,11 @@ vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
 
 
 
-" better man page in vim
-" http://www.farseer.cn/config/2013/08/13/vim-tips-2/
-runtime ftplugin/man.vim
-nmap K :Man <cword><CR>
+" " better man page in vim
+" " http://www.farseer.cn/config/2013/08/13/vim-tips-2/
+" runtime ftplugin/man.vim
+" nmap K :Man <cword><CR>
+
 vmap K <ESC>:execute "Man ".GetVisualSelection()<CR>
 function! GetVisualSelection()
     let [s:lnum1, s:col1] = getpos("'<")[1:2]  " 坑爹的高亮
