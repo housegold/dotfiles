@@ -7,6 +7,8 @@ export EDITOR=$VISUAL
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
 
+
+# http://www.cnblogs.com/cocoajin/p/3729436.html
 # if-shell 'test "$(uname)" = "Darwin"' 
 if brew list | grep coreutils > /dev/null ; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
