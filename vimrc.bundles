@@ -49,33 +49,33 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'tomasr/molokai'
 Plug 'jnurmine/Zenburn'
 
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdcommenter'
-Plug 'houtsnip/vim-emacscommandline'
-Plug 'rking/ag.vim'
-Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-surround'
-Plug 'vimcn/matchit.vim.cnx'
-Plug 'Lokaltog/vim-easymotion' 
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'benmills/vimux'
+ Plug 'tpope/vim-commentary'
+" Plug 'scrooloose/nerdcommenter'
+" Plug 'houtsnip/vim-emacscommandline'
+" Plug 'rking/ag.vim'
+" Plug 'tpope/vim-repeat'
+" " Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-surround'
+" Plug 'vimcn/matchit.vim.cnx'
+" Plug 'Lokaltog/vim-easymotion' 
 
-" Session
-" Plug 'dhruvasagar/vim-prosession'
-" Plug 'manuel-colmenero/vim-simple-session'
-" Plug 'tpope/vim-obsession'
-Plug 'housegold/vim-obsession' 
-Plug 'derekwyatt/vim-fswitch' 
+" " Session
+" " Plug 'dhruvasagar/vim-prosession'
+" " Plug 'manuel-colmenero/vim-simple-session'
+" " Plug 'tpope/vim-obsession'
+" Plug 'housegold/vim-obsession' 
+" Plug 'derekwyatt/vim-fswitch' 
 
-" CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
+" " CtrlP
+" Plug 'ctrlpvim/ctrlp.vim'
 
-" cscope
-Plug 'steffanc/cscopemaps.vim'
-Plug 'autoload_cscope.vim'
+" " cscope
+" Plug 'steffanc/cscopemaps.vim'
+" Plug 'autoload_cscope.vim'
 
 "" Unite
 "Plug 'Shougo/unite.vim'
