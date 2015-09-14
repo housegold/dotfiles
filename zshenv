@@ -4,14 +4,18 @@ export EDITOR=$VISUAL
 
 
 # fangj
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
 
 
 # http://www.cnblogs.com/cocoajin/p/3729436.html
 # if-shell 'test "$(uname)" = "Darwin"' 
 if brew list | grep coreutils > /dev/null ; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    # PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    # fangj
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
+    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
+    # endFang
     alias ls='ls -F --show-control-chars --color=auto'
     eval `gdircolors -b $HOME/.dir_colors`
 fi
