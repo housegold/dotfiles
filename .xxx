@@ -1,0 +1,9 @@
+# modify the prompt to contain git branch name if applicable
+start_time=$(date +%s) 
+
+
+
+ls
+
+finish_time=$(date +%s) 
+echo "Time duration: $((finish_time - start_time)) secs." 
