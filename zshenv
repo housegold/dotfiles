@@ -4,6 +4,10 @@ export EDITOR=$VISUAL
 
 
 # fangj
+PATH="/usr/local/sbin/:$PATH" 
+
+
+
 # PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" 
 # MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" 
 
