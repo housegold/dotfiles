@@ -104,3 +104,12 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
+[[ -s "/Users/housegold/.jenv/bin/jenv-init.sh" ]] && source "/Users/housegold/.jenv/bin/jenv-init.sh" && source "/Users/housegold/.jenv/commands/completion.sh"
+
+PATH="/Users/housegold/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/Users/housegold/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/housegold/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/housegold/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/housegold/perl5"; export PERL_MM_OPT;
